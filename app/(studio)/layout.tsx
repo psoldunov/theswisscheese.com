@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import '../globals.css';
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://www.theswisscheese.com'),
+	title: 'Sanity Dashboard | Ocutrx',
 };
 
 export default function RootLayout({
@@ -9,5 +10,9 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	return <>{children}</>;
+	return (
+		<html lang='en'>
+			<body>{children}</body>
+		</html>
+	);
 }
