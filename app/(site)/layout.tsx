@@ -53,16 +53,16 @@ export default function RootLayout({
 								<Image src={psLogo} width={48} alt='GitHub' />
 							</Link>
 							<nav className='nav-menu'>
-								<Link className='nav-link' href='#intro'>
+								<Link className='nav-link' href='/#intro'>
 									Intro
 								</Link>
-								<Link className='nav-link' href='#why'>
+								<Link className='nav-link' href='/#why'>
 									Why am I doing this?
 								</Link>
-								<Link className='nav-link' href='#bonus'>
+								<Link className='nav-link' href='/#bonus'>
 									Bonus
 								</Link>
-								<Link className='nav-link' href='#contact'>
+								<Link className='nav-link' href='/#contact'>
 									Contact
 								</Link>
 							</nav>
