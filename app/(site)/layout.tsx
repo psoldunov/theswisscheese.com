@@ -1,8 +1,27 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '../globals.css';
+import { IBM_Plex_Sans, IBM_Plex_Mono, IBM_Plex_Serif } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const ibm_plex_sans = IBM_Plex_Sans({
+	display: 'swap',
+	subsets: ['latin', 'cyrillic'],
+	weight: '400',
+	variable: '--font-ibm-plex-sans',
+});
+
+const ibm_plex_mono = IBM_Plex_Mono({
+	display: 'swap',
+	subsets: ['latin', 'cyrillic'],
+	weight: ['400', '700'],
+	variable: '--font-ibm-plex-mono',
+});
+
+const ibm_plex_serif = IBM_Plex_Serif({
+	display: 'swap',
+	subsets: ['latin', 'cyrillic'],
+	weight: '400',
+	variable: '--font-ibm-plex-serif',
+});
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -16,7 +35,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={inter.className}>{children}</body>
+			<body
+				className={`${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable}`}>
+				{children}
+			</body>
 		</html>
 	);
 }
