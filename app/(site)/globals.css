@@ -3,27 +3,184 @@
 @tailwind utilities;
 
 :root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-	}
+	--bg-color: #292929;
+	--hl-color: #2ec8fd;
+	--text-color: #f4f4f4;
+	--line-color: #3e3e3e;
+	--block-bg-color: #4d4d4d;
+	--block-bd-color: #555555;
+	--block-dark-bg: #303030;
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
-	background: linear-gradient(
-			to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))
-		)
-		rgb(var(--background-start-rgb));
+	@apply bg-[color:var(--bg-color)] text-[color:var(--text-color)] m-0;
+	@apply font-mono;
+}
+
+::-moz-selection {
+	@apply text-[color:var(--bg-color)];
+	background: var(--hl-color);
+}
+::selection {
+	@apply text-[color:var(--bg-color)];
+	background: var(--hl-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-bold font-sans;
+}
+
+p {
+	@apply text-base leading-6 my-0;
+}
+p a {
+	@apply text-[color:var(--text-color)] no-underline border-b-[color:var(--text-color)] transition-all duration-200 ease-[ease] border-b border-dotted hover:text-[color:var(--hl-color)] hover:border-b-[color:var(--hl-color)];
+}
+img {
+	@apply max-w-full;
+}
+h1.page-h1 {
+	@apply text-center text-[color:var(--bg-color)] bg-[color:var(--text-color)] text-[56px] leading-[64px] m-0 px-6 py-4;
+	transform: rotateZ(5deg);
+}
+h2.intro-h2 {
+	@apply text-[32px] leading-10 mt-0 mb-4;
+}
+span.span-hl {
+	@apply text-[color:var(--bg-color)] bg-[color:var(--text-color)] px-4 py-0;
+}
+.page-preheader {
+	@apply flex flex-col justify-center items-center pt-24 pb-32;
+}
+.ph-p {
+	@apply max-w-[560px] text-center text-xl leading-7 mt-16;
+}
+.navbar {
+	@apply h-24 w-full;
+}
+.main-container {
+	@apply w-full max-w-screen-lg mx-auto px-8;
+}
+.navbar-container {
+	@apply h-full;
+}
+.navbar-inner {
+	@apply flex flex-row justify-between items-stretch w-full h-full;
+}
+.nav-menu {
+	@apply flex h-full flex-row justify-start items-stretch;
+}
+.nav-link {
+	@apply flex flex-row justify-center items-center no-underline text-[color:var(--text-color)] transition-all duration-200 ease-[ease] px-6 py-0 hover:text-[color:var(--hl-color)];
+}
+.logo-link {
+	@apply w-24 h-24 flex flex-row justify-center items-center;
+}
+.page-hero-flex {
+	@apply flex flex-row justify-between items-center py-24;
+}
+.hero-flex-left {
+	@apply flex flex-col justify-center items-start grow shrink basis-[0%] pr-16;
+}
+.hero-flex-right {
+	@apply w-[30%];
+}
+.hero-img {
+	@apply rounded-[50%];
+}
+.section {
+	@apply py-16;
+}
+.section-h2 {
+	@apply text-center text-[40px] leading-[48px] mb-8;
+}
+.flex-container {
+	@apply flex flex-col justify-center items-center;
+}
+.section-p {
+	@apply max-w-[656px] text-center mt-16 mx-auto my-0;
+}
+.btn-normal {
+	@apply text-[color:var(--bg-color)] no-underline bg-[color:var(--hl-color)] font-bold font-sans text-center text-base leading-6 transition-all duration-200 ease-[ease] mt-8 px-5 py-3 rounded-lg border-0 hover:bg-[color:var(--text-color)];
+}
+.dog-gallery {
+	@apply flex-col justify-center items-center mt-16;
+}
+.footer {
+	@apply py-8;
+}
+.dog-button-wrap {
+	@apply flex flex-row px-0 py-8;
+}
+.dog-tab-link {
+	@apply text-[color:var(--bg-color)] bg-[color:var(--text-color)] font-[bold] transition-all duration-200 ease-[ease] no-underline mx-2 my-0 px-3.5 py-2 rounded-[50%];
+}
+.dog-tab-link.active-link,
+.dog-tab-link:hover {
+	@apply bg-[color:var(--hl-color)];
+}
+.dog-tabs-wrap {
+	@apply flex flex-col justify-center items-center;
+}
+.dog-tab {
+	@apply hidden flex-col justify-center items-center max-w-[620px];
+}
+.active-tab {
+	@apply flex;
+}
+.h2-small {
+	@apply text-[32px] leading-10 mb-6;
+}
+.links-grid {
+	@apply flex flex-row justify-center items-center mt-8;
+}
+.soc-link {
+	@apply flex flex-row justify-center items-center w-12 opacity-[50%] transition-all duration-200 ease-[ease] mx-6 my-0 hover:opacity-[100%];
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+	h1.page-h1 {
+		@apply text-[40px] leading-[48px];
+	}
+	.page-preheader {
+		@apply py-24;
+	}
+	.page-hero-flex {
+		@apply flex flex-col-reverse py-16;
+	}
+	.hero-flex-left {
+		@apply justify-center items-center text-center w-full mt-16 pr-0;
+	}
+	.hero-flex-right {
+		@apply w-6/12;
+	}
+	.hero-img {
+		@apply rounded-[50%];
+	}
+}
+@media screen and (max-width: 660px) {
+	.nav-menu {
+		@apply hidden;
+	}
+}
+
+/* Mobile Portrait */
+@media screen and (max-width: 375px) {
+	.navbar {
+		@apply h-16;
+	}
+	.main-container {
+		@apply px-6;
+	}
+	.logo-link {
+		@apply w-16 h-16;
+	}
 }
 
 @layer utilities {

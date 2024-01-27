@@ -1,43 +1,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import phil from '../assets/phil.png';
+import codewars from '../assets/codewars.svg';
+import freeCodeCamp from '../assets/freeCodeCamp.svg';
+import github from '../assets/GitHub.svg';
+
+import DogGallery from './_layout/DogGallery';
+
+function getAge(birthdayDate: string) {
+	const birthday = new Date(birthdayDate);
+	const ageDifMs = Date.now() - birthday.getTime();
+	const ageDate = new Date(ageDifMs);
+	return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
 export default function Home() {
 	return (
 		<>
-			<header className='navbar'>
-				<div className='main-container navbar-container'>
-					<div className='navbar-inner'>
-						<Link className='logo-link' href='/'>
-							<Image
-								src='assets/ps-logo.svg'
-								height='48'
-								width='48'
-								alt='GitHub'
-							/>
-						</Link>
-						<nav className='nav-menu'>
-							<Link className='nav-link' href='#intro'>
-								Intro
-							</Link>
-							<Link className='nav-link' href='#why'>
-								Why am I doing this?
-							</Link>
-							<Link className='nav-link' href='#bonus'>
-								Bonus
-							</Link>
-							<Link className='nav-link' href='#contact'>
-								Contact
-							</Link>
-						</nav>
-					</div>
-				</div>
-			</header>
 			<main>
 				<div className='main-container'>
 					<div className='page-preheader'>
 						<h1 className='page-h1'>Philipp&apos;s Little GitHub Corner</h1>
 						<p className='ph-p'>
-							This website was build as a requirement for my{' '}
+							This website was built in 2020 as a requirement for my{' '}
 							<b>
 								<Link target='_blank' href='https://www.foundersandcoders.com/'>
 									Founders and Coders
@@ -56,7 +41,8 @@ export default function Home() {
 								Hi! My name is <span className='span-hl'>Philipp Soldunov</span>
 							</h2>
 							<p>
-								I am 31 years old programmer in the making and a blue belt in{' '}
+								I am {getAge('1992-03-03')} years old programmer in the making
+								and a blue belt in{' '}
 								<Link
 									target='_blank'
 									href='https://en.wikipedia.org/wiki/Brazilian_jiu-jitsu'>
@@ -89,19 +75,13 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='hero-flex-right'>
-							<Image
-								width={48}
-								height={48}
-								className='hero-img'
-								src='/assets/phil.png'
-								alt='Philipp Soldunov'
-							/>
+							<Image className='hero-img' src={phil} alt='Philipp Soldunov' />
 						</div>
 					</section>
 					<section id='why' className='section'>
 						<div className='flex-container'>
 							<h2 className='section-h2'>
-								Why I am applying for <span className='span-hl'>F&C</span>{' '}
+								Why was I applying for <span className='span-hl'>F&C</span>{' '}
 								programme?
 							</h2>
 							<p className='section-p'>
@@ -114,7 +94,7 @@ export default function Home() {
 								different life path...
 								<br />
 								<br />
-								But now, it is time to change things!
+								It was time to change things!
 								<br />
 								<br />I have decided to rectify my past mistakes and learn
 								JavaScript. As I&apos;ve written above, my dream is to make real
@@ -133,92 +113,7 @@ export default function Home() {
 							</Link>
 						</div>
 					</section>
-					<section id='bonus' className='section'>
-						<aside className='flex-container'>
-							<h2 className='section-h2'>Bonus!</h2>
-							<p className='section-p'>
-								One more fact about me: I have a dog named <b>Richie</b> and who
-								is a{' '}
-								<Link
-									target='_blank'
-									href='https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel'>
-									Cavalier King Charles Spaniel
-								</Link>
-								. He is 3 years old and he is the most spoiled dog on the planet
-								Earth!
-								<br />
-								<br />
-								To see his picture click on the button below.
-							</p>
-							<Link href='#dogGallery' className='btn-normal'>
-								Show me Richie!
-							</Link>
-							<div id='dogGallery' className='dog-gallery'>
-								<div className='dog-button-wrap'>
-									<Link
-										id='ph1'
-										className='dog-tab-link active-link'
-										href='#tab-1'>
-										1
-									</Link>
-									<Link id='ph2' className='dog-tab-link' href='#tab-2'>
-										2
-									</Link>
-									<Link id='ph3' className='dog-tab-link' href='#tab-3'>
-										3
-									</Link>
-									<Link id='ph4' className='dog-tab-link' href='#tab-4'>
-										4
-									</Link>
-									<Link id='ph5' className='dog-tab-link' href='#tab-5'>
-										5
-									</Link>
-								</div>
-								<div className='dog-tabs-wrap'>
-									<div id='tab-1' className='dog-tab active-tab'>
-										<Image
-											width={48}
-											height={48}
-											src='/assets/richie-1.JPG'
-											alt='Cavalier'
-										/>
-									</div>
-									<div id='tab-2' className='dog-tab'>
-										<Image
-											width={48}
-											height={48}
-											src='/assets/richie-2.JPG'
-											alt='Cavalier'
-										/>
-									</div>
-									<div id='tab-3' className='dog-tab'>
-										<Image
-											width={48}
-											height={48}
-											src='/assets/richie-3.JPG'
-											alt='Cavalier'
-										/>
-									</div>
-									<div id='tab-4' className='dog-tab'>
-										<Image
-											width={48}
-											height={48}
-											src='/assets/richie-4.JPG'
-											alt='Cavalier'
-										/>
-									</div>
-									<div id='tab-5' className='dog-tab'>
-										<Image
-											width={48}
-											height={48}
-											src='/assets/richie-5.JPG'
-											alt='Cavalier'
-										/>
-									</div>
-								</div>
-							</div>
-						</aside>
-					</section>
+					<DogGallery />
 					<section id='contact' className='section'>
 						<div className='flex-container'>
 							<h2 className='section-h2 h2-small'>
@@ -232,46 +127,25 @@ export default function Home() {
 									className='soc-link'
 									href='https://www.codewars.com/users/psoldunov'
 									target='_blank'>
-									<Image
-										width={48}
-										height={48}
-										src='/assets/codewars.svg'
-										alt='Codewars'
-									/>
+									<Image width={48} src={codewars} alt='Codewars' />
 								</Link>
 								<Link
 									className='soc-link'
 									href='https://github.com/psoldunov'
 									target='_blank'>
-									<Image
-										width={48}
-										height={48}
-										src='/assets/GitHub.svg'
-										alt='GitHub'
-									/>
+									<Image width={48} src={github} alt='GitHub' />
 								</Link>
 								<Link
 									className='soc-link'
 									href='https://www.freecodecamp.org/psoldunov'
 									target='_blank'>
-									<Image
-										width={48}
-										height={48}
-										src='/assets/freeCodeCamp.svg'
-										alt='freeCodeCamp'
-									/>
+									<Image width={48} src={freeCodeCamp} alt='freeCodeCamp' />
 								</Link>
 							</div>
 						</div>
 					</section>
 				</div>
 			</main>
-
-			<footer className='footer'>
-				<div className='main-container'>
-					<span>2023 © Philipp Soldunov</span>
-				</div>
-			</footer>
 		</>
 	);
 }
