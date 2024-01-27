@@ -81,27 +81,27 @@ export default function DogGallery() {
 						<div
 							id='tab-1'
 							className={`dog-tab ${activeTab === 1 && 'active-tab'}`}>
-							<Image src={richie1} alt='Cavalier' />
+							<Image placeholder='blur' src={richie1} alt='Cavalier' />
 						</div>
 						<div
 							id='tab-2'
 							className={`dog-tab ${activeTab === 2 && 'active-tab'}`}>
-							<Image src={richie2} alt='Cavalier' />
+							<Image placeholder='blur' src={richie2} alt='Cavalier' />
 						</div>
 						<div
 							id='tab-3'
 							className={`dog-tab ${activeTab === 3 && 'active-tab'}`}>
-							<Image src={richie3} alt='Cavalier' />
+							<Image placeholder='blur' src={richie3} alt='Cavalier' />
 						</div>
 						<div
 							id='tab-4'
 							className={`dog-tab ${activeTab === 4 && 'active-tab'}`}>
-							<Image src={richie4} alt='Cavalier' />
+							<Image placeholder='blur' src={richie4} alt='Cavalier' />
 						</div>
 						<div
 							id='tab-5'
 							className={`dog-tab ${activeTab === 5 && 'active-tab'}`}>
-							<Image src={richie5} alt='Cavalier' />
+							<Image placeholder='blur' src={richie5} alt='Cavalier' />
 						</div>
 					</div>
 				</div>

@@ -75,7 +75,12 @@ export default function Home() {
 							</p>
 						</div>
 						<div className='hero-flex-right'>
-							<Image className='hero-img' src={phil} alt='Philipp Soldunov' />
+							<Image
+								className='hero-img'
+								src={phil}
+								alt='Philipp Soldunov'
+								placeholder='blur'
+							/>
 						</div>
 					</section>
 					<section id='why' className='section'>
